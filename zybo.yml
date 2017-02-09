@@ -27,21 +27,385 @@
 #                                                                                                                      #
 ########################################################################################################################
 
+########################################################################################################################
+# Board info
+
 device:
     triplet: zynq7-xc7z010
     speed: 1
     package: clg400
+
+
+########################################################################################################################
+# Clock sources
 
 clocks:
     clk:
         mhz:    125.000
         duty:   50
 
+########################################################################################################################
+# Top-level signals
+
 ios:
+
+    ####################################################################################################################
+    # VGA
+
+    vga_vsync:
+        loc:    R19
+        std:    LVCMOS33
+
+    vga_hsync:
+        loc:    P19
+        std:    LVCMOS33
+
+    vga_r[4]:
+        loc:    F19
+        std:    LVCMOS33
+
+    vga_r[3]:
+        loc:    G20
+        std:    LVCMOS33
+
+    vga_r[2]:
+        loc:    J20
+        std:    LVCMOS33
+
+    vga_r[1]:
+        loc:    L20
+        std:    LVCMOS33
+
+    vga_r[0]:
+        loc:    M19
+        std:    LVCMOS33
+
+    vga_g[5]:
+        loc:    F20
+        std:    LVCMOS33
+
+    vga_g[4]:
+        loc:    H20
+        std:    LVCMOS33
+
+    vga_g[3]:
+        loc:    J190
+        std:    LVCMOS33
+
+    vga_g[2]:
+        loc:    L19
+        std:    LVCMOS33
+
+    vga_g[1]:
+        loc:    N20
+        std:    LVCMOS33
+
+    vga_g[0]:
+        loc:    H18
+        std:    LVCMOS33
+
+    vga_b[4]:
+        loc:    G19
+        std:    LVCMOS33
+
+    vga_b[3]:
+        loc:    J18
+        std:    LVCMOS33
+
+    vga_b[2]:
+        loc:    K18
+        std:    LVCMOS33
+
+    vga_b[1]:
+        loc:    M20
+        std:    LVCMOS33
+
+    vga_b[0]:
+        loc:    P20
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Clocks
+
+    # from ethernet PHY... goes away when PHY is reset, use caution!
     clk:
         loc:    L16
         std:    LVCMOS33
 
-    led:
+    ####################################################################################################################
+    # Ethernet
+
+    eth_rst
+        loc:    E17
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Switches
+
+    switch[3]:
+        loc:    T16
+        std:    LVCMOS33
+
+    switch[2]:
+        loc:    W13
+        std:    LVCMOS33
+
+    switch[1]:
+        loc:    P15
+        std:    LVCMOS33
+
+    switch[0]:
+        loc:    G15
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Buttons
+
+    button[3]:
+        loc:    Y16
+        std:    LVCMOS33
+
+    button[2]:
+        loc:    V16
+        std:    LVCMOS33
+
+    button[1]:
+        loc:    P16
+        std:    LVCMOS33
+
+    button[0]:
+        loc:    R18
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # LEDs
+
+    led[3]:
+        loc:    D18
+        std:    LVCMOS33
+
+    led[2]:
+        loc:    G14
+        std:    LVCMOS33
+
+    led[1]:
+        loc:    M15
+        std:    LVCMOS33
+
+    led[0]:
         loc:    M14
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # I2S
+
+    i2s_bclk:
+        loc:    K18
+        std:    LVCMOS33
+
+    i2s_spkdat:
+        loc:    M17
+        std:    LVCMOS33
+
+    i2s_spkclk:
+        loc:    L17
+        std:    LVCMOS33
+
+    i2s_micdat:
+        loc:    K17
+        std:    LVCMOS33
+
+    i2s_micclk:
+        loc:    M18
+        std:    LVCMOS33
+
+    i2s_sda:
+        loc:    N17
+        std:    LVCMOS33
+
+    i2s_scl:
+        loc:    N18
+        std:    LVCMOS33
+
+    i2s_mute_n:
+        loc:    P18
+        std:    LVCMOS33
+
+    i2s_mclk:
+        loc:    T19
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD A
+
+    pmod_a[0]:
+        loc:    N15
+        std:    LVCMOS33
+
+    pmod_a[1]:
+        loc:    L14
+        std:    LVCMOS33
+
+    pmod_a[2]:
+        loc:    K16
+        std:    LVCMOS33
+
+    pmod_a[3]:
+        loc:    K14
+        std:    LVCMOS33
+
+    pmod_a[4]:
+        loc:    N16
+        std:    LVCMOS33
+
+    pmod_a[5]:
+        loc:    L15
+        std:    LVCMOS33
+
+    pmod_a[6]:
+        loc:    J16
+        std:    LVCMOS33
+
+    pmod_a[7]:
+        loc:    J14
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD B
+
+    pmod_b[0]:
+        loc:    T20
+        std:    LVCMOS33
+
+    pmod_b[1]:
+        loc:    U20
+        std:    LVCMOS33
+
+    pmod_b[2]:
+        loc:    V20
+        std:    LVCMOS33
+
+    pmod_b[3]:
+        loc:    W20
+        std:    LVCMOS33
+
+    pmod_b[4]:
+        loc:    Y18
+        std:    LVCMOS33
+
+    pmod_b[5]:
+        loc:    Y19
+        std:    LVCMOS33
+
+    pmod_b[6]:
+        loc:    W18
+        std:    LVCMOS33
+
+    pmod_b[7]:
+        loc:    W19
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD C
+
+    pmod_c[0]:
+        loc:    V15
+        std:    LVCMOS33
+
+    pmod_c[1]:
+        loc:    W15
+        std:    LVCMOS33
+
+    pmod_c[2]:
+        loc:    T11
+        std:    LVCMOS33
+
+    pmod_c[3]:
+        loc:    T10
+        std:    LVCMOS33
+
+    pmod_c[4]:
+        loc:    W14
+        std:    LVCMOS33
+
+    pmod_c[5]:
+        loc:    Y14
+        std:    LVCMOS33
+
+    pmod_c[6]:
+        loc:    T12
+        std:    LVCMOS33
+
+    pmod_c[7]:
+        loc:    U12
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD D
+
+    pmod_d[0]:
+        loc:    T14
+        std:    LVCMOS33
+
+    pmod_d[1]:
+        loc:    T15
+        std:    LVCMOS33
+
+    pmod_d[2]:
+        loc:    P14
+        std:    LVCMOS33
+
+    pmod_d[3]:
+        loc:    R14
+        std:    LVCMOS33
+
+    pmod_d[4]:
+        loc:    U14
+        std:    LVCMOS33
+
+    pmod_d[5]:
+        loc:    U15
+        std:    LVCMOS33
+
+    pmod_d[6]:
+        loc:    V17
+        std:    LVCMOS33
+
+    pmod_d[7]:
+        loc:    V18
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD E
+
+    pmod_e[0]:
+        loc:    V12
+        std:    LVCMOS33
+
+    pmod_e[1]:
+        loc:    W16
+        std:    LVCMOS33
+
+    pmod_e[2]:
+        loc:    J15
+        std:    LVCMOS33
+
+    pmod_e[3]:
+        loc:    H15
+        std:    LVCMOS33
+
+    pmod_e[4]:
+        loc:    V13
+        std:    LVCMOS33
+
+    pmod_e[5]:
+        loc:    U17
+        std:    LVCMOS33
+
+    pmod_e[6]:
+        loc:    T17
+        std:    LVCMOS33
+
+    pmod_e[7]:
+        loc:    Y17
         std:    LVCMOS33
