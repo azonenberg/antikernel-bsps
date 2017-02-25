@@ -1,0 +1,952 @@
+########################################################################################################################
+#                                                                                                                      #
+# ANTIKERNEL v0.1                                                                                                      #
+#                                                                                                                      #
+# Copyright (c) 2012-2017 Andrew D. Zonenberg                                                                          #
+# All rights reserved.                                                                                                 #
+#                                                                                                                      #
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the     #
+# following conditions are met:                                                                                        #
+#                                                                                                                      #
+#    * Redistributions of source code must retain the above copyright notice, this list of conditions, and the         #
+#      following disclaimer.                                                                                           #
+#                                                                                                                      #
+#    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the       #
+#      following disclaimer in the documentation and/or other materials provided with the distribution.                #
+#                                                                                                                      #
+#    * Neither the name of the author nor the names of any contributors may be used to endorse or promote products     #
+#      derived from this software without specific prior written permission.                                           #
+#                                                                                                                      #
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   #
+# TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL #
+# THE AUTHORS BE HELD LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES        #
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR       #
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT #
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE       #
+# POSSIBILITY OF SUCH DAMAGE.                                                                                          #
+#                                                                                                                      #
+########################################################################################################################
+
+########################################################################################################################
+# Board info
+
+device:
+    triplet: artix7-xc7a100t
+    speed: 1
+    package: csg234
+
+
+########################################################################################################################
+# Clock sources
+
+clocks:
+    clk:
+        mhz:    100.000
+        duty:   50
+
+
+
+########################################################################################################################
+# Top-level signals
+
+ios:
+
+    ####################################################################################################################
+    # Clock
+
+    clk:
+        loc:    E3
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Switches
+
+    switch[0]:
+        loc:    J15
+        std:    LVCMOS33
+
+    switch[1]:
+        loc:    L16
+        std:    LVCMOS33
+
+    switch[2]:
+        loc:    M13
+        std:    LVCMOS33
+
+    switch[3]:
+        loc:    R15
+        std:    LVCMOS33
+
+    switch[4]:
+        loc:    R17
+        std:    LVCMOS33
+
+    switch[5]:
+        loc:    T18
+        std:    LVCMOS33
+
+    switch[6]:
+        loc:    U18
+        std:    LVCMOS33
+
+    switch[7]:
+        loc:    R13
+        std:    LVCMOS33
+
+    switch[8]:
+        loc:    T8
+        std:    LVCMOS18
+
+    switch[9]:
+        loc:    U8
+        std:    LVCMOS18
+
+    switch[10]:
+        loc:    R16
+        std:    LVCMOS33
+
+    switch[11]:
+        loc:    T13
+        std:    LVCMOS33
+
+    switch[12]:
+        loc:    H6
+        std:    LVCMOS33
+
+    switch[13]:
+        loc:    U12
+        std:    LVCMOS33
+
+    switch[14]:
+        loc:    U11
+        std:    LVCMOS33
+
+    switch[15]:
+        loc:    V10
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Buttons
+
+    cpu_resetn:
+        loc:    C12
+        std:    LVCMOS33
+
+
+    btnc:
+        loc:    N17
+        std:    LVCMOS33
+
+    btnd:
+        loc:    P18
+        std:    LVCMOS33
+
+    btnl:
+        loc:    P17
+        std:    LVCMOS33
+
+    btnr:
+        loc:    M17
+        std:    LVCMOS33
+
+    btnu:
+        loc:    M18
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # LEDs
+
+    led[0]:
+        loc:    H17
+        std:    LVCMOS33
+
+    led[1]:
+        loc:    K15
+        std:    LVCMOS33
+
+    led[2]:
+        loc:    J13
+        std:    LVCMOS33
+
+    led[3]:
+        loc:    N14
+        std:    LVCMOS33
+
+    led[4]:
+        loc:    R18
+        std:    LVCMOS33
+
+    led[5]:
+        loc:    V17
+        std:    LVCMOS33
+
+    led[6]:
+        loc:    U17
+        std:    LVCMOS33
+
+    led[7]:
+        loc:    U16
+        std:    LVCMOS33
+
+    led[8]:
+        loc:    V16
+        std:    LVCMOS33
+
+    led[9]:
+        loc:    T15
+        std:    LVCMOS33
+
+    led[10]:
+        loc:    U14
+        std:    LVCMOS33
+
+    led[11]:
+        loc:    T16
+        std:    LVCMOS33
+
+    led[12]:
+        loc:    V15
+        std:    LVCMOS33
+
+    led[13]:
+        loc:    V14
+        std:    LVCMOS33
+
+    led[14]:
+        loc:    V12
+        std:    LVCMOS33
+
+    led[15]:
+        loc:    V11
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # RGB LEDs
+
+    led16_b:
+        loc:    R12
+        std:    LVCMOS33
+
+    led16_g:
+        loc:    M16
+        std:    LVCMOS33
+
+    led16_r:
+        loc:    N15
+        std:    LVCMOS33
+
+    led17_b:
+        loc:    G14
+        std:    LVCMOS33
+
+    led17_g:
+        loc:    R11
+        std:    LVCMOS33
+
+    led17_r:
+        loc:    N16
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # 7 segment display
+
+    ca:
+        loc:    T10
+        std:    LVCMOS33
+
+    cb:
+        loc:    R10
+        std:    LVCMOS33
+
+    cc:
+        loc:    K16
+        std:    LVCMOS33
+
+    cd:
+        loc:    K13
+        std:    LVCMOS33
+
+    ce:
+        loc:    P15
+        std:    LVCMOS33
+
+    cf:
+        loc:    T11
+        std:    LVCMOS33
+
+    cg:
+        loc:    L18
+        std:    LVCMOS33
+
+    dp:
+        loc:    H15
+        std:    LVCMOS33
+
+
+    an[0]:
+        loc:    J17
+        std:    LVCMOS33
+
+    an[1]:
+        loc:    J18
+        std:    LVCMOS33
+
+    an[2]:
+        loc:    T9
+        std:    LVCMOS33
+
+    an[3]:
+        loc:    J14
+        std:    LVCMOS33
+
+    an[4]:
+        loc:    P14
+        std:    LVCMOS33
+
+    an[5]:
+        loc:    T14
+        std:    LVCMOS33
+
+    an[6]:
+        loc:    K2
+        std:    LVCMOS33
+
+    an[7]:
+        loc:    U13
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD A
+
+    pmod_a[1]:
+        loc:    C17
+        std:    LVCMOS33
+
+    pmod_a[2]:
+        loc:    D18
+        std:    LVCMOS33
+
+    pmod_a[3]:
+        loc:    E18
+        std:    LVCMOS33
+
+    pmod_a[4]:
+        loc:    G17
+        std:    LVCMOS33
+
+    pmod_a[7]:
+        loc:    D17
+        std:    LVCMOS33
+
+    pmod_a[8]:
+        loc:    E17
+        std:    LVCMOS33
+
+    pmod_a[9]:
+        loc:    F18
+        std:    LVCMOS33
+
+    pmod_a[10]:
+        loc:    G18
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD B
+
+    pmod_b[1]:
+        loc:    D14
+        std:    LVCMOS33
+
+    pmod_b[2]:
+        loc:    F16
+        std:    LVCMOS33
+
+    pmod_b[3]:
+        loc:    G16
+        std:    LVCMOS33
+
+    pmod_b[4]:
+        loc:    H14
+        std:    LVCMOS33
+
+    pmod_b[7]:
+        loc:    E16
+        std:    LVCMOS33
+
+    pmod_b[8]:
+        loc:    F13
+        std:    LVCMOS33
+
+    pmod_b[9]:
+        loc:    G13
+        std:    LVCMOS33
+
+    pmod_b[10]:
+        loc:    H16
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD C
+
+    pmod_c[1]:
+        loc:    K1
+        std:    LVCMOS33
+
+    pmod_c[2]:
+        loc:    F6
+        std:    LVCMOS33
+
+    pmod_c[3]:
+        loc:    J2
+        std:    LVCMOS33
+
+    pmod_c[4]:
+        loc:    G6
+        std:    LVCMOS33
+
+    pmod_c[7]:
+        loc:    E7
+        std:    LVCMOS33
+
+    pmod_c[8]:
+        loc:    J3
+        std:    LVCMOS33
+
+    pmod_c[9]:
+        loc:    J4
+        std:    LVCMOS33
+
+    pmod_c[10]:
+        loc:    E6
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD D
+
+    pmod_d[1]:
+        loc:    H4
+        std:    LVCMOS33
+
+    pmod_d[2]:
+        loc:    H1
+        std:    LVCMOS33
+
+    pmod_d[3]:
+        loc:    G1
+        std:    LVCMOS33
+
+    pmod_d[4]:
+        loc:    G3
+        std:    LVCMOS33
+
+    pmod_d[7]:
+        loc:    H2
+        std:    LVCMOS33
+
+    pmod_d[8]:
+        loc:    G4
+        std:    LVCMOS33
+
+    pmod_d[9]:
+        loc:    G2
+        std:    LVCMOS33
+
+    pmod_d[10]:
+        loc:    F3
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD XADC
+
+    pmod_xadc_n[1]:
+        loc:    A14
+        std:    LVDS
+
+    pmod_xadc_p[1]:
+        loc:    A13
+        std:    LVDS
+
+    pmod_xadc_n[2]:
+        loc:    A16
+        std:    LVDS
+
+    pmod_xadc_p[2]:
+        loc:    A15
+        std:    LVDS
+
+    pmod_xadc_n[3]:
+        loc:    B17
+        std:    LVDS
+
+    pmod_xadc_p[3]:
+        loc:    B16
+        std:    LVDS
+
+    pmod_xadc_n[4]:
+        loc:    A18
+        std:    LVDS
+
+    pmod_xadc_p[4]:
+        loc:    B18
+        std:    LVDS
+
+    ####################################################################################################################
+    # VGA
+
+    vga_r[0]:
+        loc:    A3
+        std:    LVCMOS33
+
+    vga_r[1]:
+        loc:    B4
+        std:    LVCMOS33
+
+    vga_r[2]:
+        loc:    C5
+        std:    LVCMOS33
+
+    vga_r[3]:
+        loc:    A4
+        std:    LVCMOS33
+
+
+    vga_g[0]:
+        loc:    C6
+        std:    LVCMOS33
+
+    vga_g[1]:
+        loc:    A5
+        std:    LVCMOS33
+
+    vga_g[2]:
+        loc:    B6
+        std:    LVCMOS33
+
+    vga_g[3]:
+        loc:    A6
+        std:    LVCMOS33
+
+
+    vga_b[0]:
+        loc:    B7
+        std:    LVCMOS33
+
+    vga_b[1]:
+        loc:    C7
+        std:    LVCMOS33
+
+    vga_b[2]:
+        loc:    D7
+        std:    LVCMOS33
+
+    vga_b[3]:
+        loc:    D8
+        std:    LVCMOS33
+
+
+    vga_hsync:
+        loc:    B11
+        std:    LVCMOS33
+
+    vga_vsync:
+        loc:    B12
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Micro SD
+
+    sd_sck:
+        loc:    B1
+        std:    LVCMOS33
+
+    sd_reset:
+        loc:    E2
+        std:    LVCMOS33
+
+    sd_cd:
+        loc:    A1
+        std:    LVCMOS33
+
+    sd_cmd:
+        loc:    C1
+        std:    LVCMOS33
+
+    sd_dat[0]:
+        loc:    C2
+        std:    LVCMOS33
+
+    sd_dat[1]:
+        loc:    E1
+        std:    LVCMOS33
+
+    sd_dat[2]:
+        loc:    F1
+        std:    LVCMOS33
+
+    sd_dat[3]:
+        loc:    D2
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PWM audio amplifier
+
+    aud_pwm:
+        loc:    A11
+        std:    LVCMOS33
+
+    aud_sd:
+        loc:    D12
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Accelerometer
+
+    acl_miso:
+        loc:    E15
+        std:    LVCMOS33
+
+    acl_mosi:
+        loc:    F14
+        std:    LVCMOS33
+
+    acl_sclk:
+        loc:    F15
+        std:    LVCMOS33
+
+    acl_csn:
+        loc:    D15
+        std:    LVCMOS33
+
+    acl_int[1]:
+        loc:    B13
+        std:    LVCMOS33
+
+    acl_int[2]:
+        loc:    C16
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Temperature Sensor
+
+    tmp_ct:
+        loc:    B14
+        std:    LVCMOS33
+
+    tmp_int:
+        loc:    D13
+        std:    LVCMOS33
+
+    tmp_scl:
+        loc:    C14
+        std:    LVCMOS33
+
+    tmp_sda:
+        loc:    C15
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # USB UART
+
+    uart_cts:
+        loc:    D3
+        std:    LVCMOS33
+
+    uart_rts:
+        loc:    E5
+        std:    LVCMOS33
+
+    uart_rxd_out:
+        loc:    D4
+        std:    LVCMOS33
+
+    uart_txd_in:
+        loc:    C4
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Microphone
+
+    m_clk:
+        loc:    J5
+        std:    LVCMOS33
+
+    m_data:
+        loc:    H5
+        std:    LVCMOS33
+
+    m_lrsel:
+        loc:    F5
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # USB HID (PS/2)
+
+    ps2_clk:
+        loc:    F4
+        std:    LVCMOS33
+
+    ps2_data:
+        loc:    B2
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # QSPI FLASH
+
+    qspi_csn:
+        loc:    L13
+        std:    LVCMOS33
+
+    qspi_dq[0]:
+        loc:    K17
+        std:    LVCMOS33
+
+    qspi_dq[1]:
+        loc:    K18
+        std:    LVCMOS33
+
+    qspi_dq[2]:
+        loc:    L14
+        std:    LVCMOS33
+
+    qspi_dq[3]:
+        loc:    M14
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Ethernet PHY
+
+    eth_rxd[0]:
+        loc:    C11
+        std:    LVCMOS33
+
+    eth_rxd[1]:
+        loc:    D10
+        std:    LVCMOS33
+
+    eth_txd[0]:
+        loc:    A10
+        std:    LVCMOS33
+
+    eth_txd[1]:
+        loc:    A8
+        std:    LVCMOS33
+
+    eth_crsdv:
+        loc:    D9
+        std:    LVCMOS33
+
+    eth_intn:
+        loc:    B8
+        std:    LVCMOS33
+
+    eth_mdc:
+        loc:    C9
+        std:    LVCMOS33
+
+    eth_mdio:
+        loc:    A9
+        std:    LVCMOS33
+
+    eth_refclk:
+        loc:    D5
+        std:    LVCMOS33
+
+    eth_rstn:
+        loc:    B3
+        std:    LVCMOS33
+
+    eth_txen:
+        loc:    B9
+        std:    LVCMOS33
+
+    eth_rxerr:
+        loc:    C10
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # DDR
+
+    dr2_dq[0]:
+        loc:    R7
+        std:    SSTL18_II
+
+    dr2_dq[1]:
+        loc:    V6
+        std:    SSTL18_II
+
+    dr2_dq[2]:
+        loc:    R8
+        std:    SSTL18_II
+
+    dr2_dq[3]:
+        loc:    U7
+        std:    SSTL18_II
+
+    dr2_dq[4]:
+        loc:    V7
+        std:    SSTL18_II
+
+    dr2_dq[5]:
+        loc:    R6
+        std:    SSTL18_II
+
+    dr2_dq[6]:
+        loc:    U6
+        std:    SSTL18_II
+
+    dr2_dq[7]:
+        loc:    R5
+        std:    SSTL18_II
+
+    dr2_dq[8]:
+        loc:    T5
+        std:    SSTL18_II
+
+    dr2_dq[9]:
+        loc:    U3
+        std:    SSTL18_II
+
+    dr2_dq[10]:
+        loc:    V5
+        std:    SSTL18_II
+
+    dr2_dq[11]:
+        loc:    U4
+        std:    SSTL18_II
+
+    dr2_dq[12]:
+        loc:    V4
+        std:    SSTL18_II
+
+    dr2_dq[13]:
+        loc:    T4
+        std:    SSTL18_II
+
+    dr2_dq[14]:
+        loc:    V1
+        std:    SSTL18_II
+
+    dr2_dq[15]:
+        loc:    T3
+        std:    SSTL18_II
+
+    dr2_dm[0]:
+        loc:    T6
+        std:    SSTL18_II
+
+    dr2_dm[1]:
+        loc:    U1
+        std:    SSTL18_II
+
+    dr2_dqs_p[0]:
+        loc:    U9
+        std:    DIFF_SSTL18_II
+
+    dr2_dqs_n[0]:
+        loc:    V9
+        std:    DIFF_SSTL18_II
+
+    dr2_dqs_p[1]:
+        loc:    U2
+        std:    DIFF_SSTL18_II
+
+    dr2_dqs_n[1]:
+        loc:    V2
+        std:    DIFF_SSTL18_II
+
+    dr2_addr[12]:
+        loc:    N6
+        std:    SSTL18_II
+
+    dr2_addr[11]:
+        loc:    K5
+        std:    SSTL18_II
+
+    dr2_addr[10]:
+        loc:    R2
+        std:    SSTL18_II
+
+    dr2_addr[9]:
+        loc:    N5
+        std:    SSTL18_II
+
+    dr2_addr[8]:
+        loc:    L4
+        std:    SSTL18_II
+
+    dr2_addr[7]:
+        loc:    N1
+        std:    SSTL18_II
+
+    dr2_addr[6]:
+        loc:    M2
+        std:    SSTL18_II
+
+    dr2_addr[5]:
+        loc:    P5
+        std:    SSTL18_II
+
+    dr2_addr[4]:
+        loc:    L3
+        std:    SSTL18_II
+
+    dr2_addr[3]:
+        loc:    T1
+        std:    SSTL18_II
+
+    dr2_addr[2]:
+        loc:    M6
+        std:    SSTL18_II
+
+    dr2_addr[1]:
+        loc:    P4
+        std:    SSTL18_II
+
+    dr2_addr[0]:
+        loc:    M4
+        std:    SSTL18_II
+
+    dr2_ba[2]:
+        loc:    R1
+        std:    SSTL18_II
+
+    dr2_ba[1]:
+        loc:    P3
+        std:    SSTL18_II
+
+    dr2_ba[0]:
+        loc:    P2
+        std:    SSTL18_II
+
+    dr2_ck_p[0]:
+        loc:    L6
+        std:    DIFF_SSTL18_II
+
+    dr2_ck_n[0]:
+        loc:    L5
+        std:    DIFF_SSTL18_II
+
+    dr2_ras_n:
+        loc:    N4
+        std:    SSTL18_II
+
+    dr2_cas_n:
+        loc:    L1
+        std:    SSTL18_II
+
+    dr2_we_n:
+        loc:    N2
+        std:    SSTL18_II
+
+    dr2_cke[0]:
+        loc:    M1
+        std:    SSTL18_II
+
+    dr2_odt[0]:
+        loc:    M3
+        std:    SSTL18_II
+
+    dr2_cs_n[0]:
+        loc:    K6
+        std:    SSTL18_II
+
