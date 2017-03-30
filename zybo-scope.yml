@@ -1,0 +1,300 @@
+########################################################################################################################
+#                                                                                                                      #
+# ANTIKERNEL v0.1                                                                                                      #
+#                                                                                                                      #
+# Copyright (c) 2012-2017 Andrew D. Zonenberg                                                                          #
+# All rights reserved.                                                                                                 #
+#                                                                                                                      #
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the     #
+# following conditions are met:                                                                                        #
+#                                                                                                                      #
+#    * Redistributions of source code must retain the above copyright notice, this list of conditions, and the         #
+#      following disclaimer.                                                                                           #
+#                                                                                                                      #
+#    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the       #
+#      following disclaimer in the documentation and/or other materials provided with the distribution.                #
+#                                                                                                                      #
+#    * Neither the name of the author nor the names of any contributors may be used to endorse or promote products     #
+#      derived from this software without specific prior written permission.                                           #
+#                                                                                                                      #
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   #
+# TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL #
+# THE AUTHORS BE HELD LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES        #
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR       #
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT #
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE       #
+# POSSIBILITY OF SUCH DAMAGE.                                                                                          #
+#                                                                                                                      #
+########################################################################################################################
+
+# Copy of Zybo with differential signals for oscilloscope on PMOD D
+# (some unused peripherals removed for brevity)
+
+########################################################################################################################
+# Board info
+
+device:
+    triplet: zynq7-xc7z010
+    speed: 1
+    package: clg400
+
+
+########################################################################################################################
+# Clock sources
+
+clocks:
+    clk:
+        mhz:    125.000
+        duty:   50
+
+########################################################################################################################
+# Top-level signals
+
+ios:
+
+    ####################################################################################################################
+    # Clocks
+
+    # from ethernet PHY... goes away when PHY is reset, use caution!
+    clk:
+        loc:    L16
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Ethernet
+
+    eth_rst:
+        loc:    E17
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Switches
+
+    switch[3]:
+        loc:    T16
+        std:    LVCMOS33
+
+    switch[2]:
+        loc:    W13
+        std:    LVCMOS33
+
+    switch[1]:
+        loc:    P15
+        std:    LVCMOS33
+
+    switch[0]:
+        loc:    G15
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Buttons
+
+    button[3]:
+        loc:    Y16
+        std:    LVCMOS33
+
+    button[2]:
+        loc:    V16
+        std:    LVCMOS33
+
+    button[1]:
+        loc:    P16
+        std:    LVCMOS33
+
+    button[0]:
+        loc:    R18
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # LEDs
+
+    led[3]:
+        loc:    D18
+        std:    LVCMOS33
+
+    led[2]:
+        loc:    G14
+        std:    LVCMOS33
+
+    led[1]:
+        loc:    M15
+        std:    LVCMOS33
+
+    led[0]:
+        loc:    M14
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD A
+
+    pmod_a[0]:
+        loc:    N15
+        std:    LVCMOS33
+
+    pmod_a[1]:
+        loc:    L14
+        std:    LVCMOS33
+
+    pmod_a[2]:
+        loc:    K16
+        std:    LVCMOS33
+
+    pmod_a[3]:
+        loc:    K14
+        std:    LVCMOS33
+
+    pmod_a[4]:
+        loc:    N16
+        std:    LVCMOS33
+
+    pmod_a[5]:
+        loc:    L15
+        std:    LVCMOS33
+
+    pmod_a[6]:
+        loc:    J16
+        std:    LVCMOS33
+
+    pmod_a[7]:
+        loc:    J14
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD B
+
+    pmod_b[0]:
+        loc:    T20
+        std:    LVCMOS33
+
+    pmod_b[1]:
+        loc:    U20
+        std:    LVCMOS33
+
+    pmod_b[2]:
+        loc:    V20
+        std:    LVCMOS33
+
+    pmod_b[3]:
+        loc:    W20
+        std:    LVCMOS33
+
+    pmod_b[4]:
+        loc:    Y18
+        std:    LVCMOS33
+
+    pmod_b[5]:
+        loc:    Y19
+        std:    LVCMOS33
+
+    pmod_b[6]:
+        loc:    W18
+        std:    LVCMOS33
+
+    pmod_b[7]:
+        loc:    W19
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD C
+
+    pmod_c[0]:
+        loc:    V15
+        std:    LVCMOS33
+
+    pmod_c[1]:
+        loc:    W15
+        std:    LVCMOS33
+
+    pmod_c[2]:
+        loc:    T11
+        std:    LVCMOS33
+
+    pmod_c[3]:
+        loc:    T10
+        std:    LVCMOS33
+
+    pmod_c[4]:
+        loc:    W14
+        std:    LVCMOS33
+
+    pmod_c[5]:
+        loc:    Y14
+        std:    LVCMOS33
+
+    pmod_c[6]:
+        loc:    T12
+        std:    LVCMOS33
+
+    pmod_c[7]:
+        loc:    U12
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PMOD D
+
+    pmod_d[0]:
+        loc:    T14
+        std:    LVCMOS33
+
+    pmod_d[1]:
+        loc:    T15
+        std:    LVCMOS33
+
+    pmod_d[2]:
+        loc:    P14
+        std:    LVCMOS33
+
+    pmod_d[3]:
+        loc:    R14
+        std:    LVCMOS33
+
+    pmod_d[4]:
+        loc:    U14
+        std:    TMDS_33
+
+    pmod_d[5]:
+        loc:    U15
+        std:    TMDS_33
+
+    pmod_d[6]:
+        loc:    V17
+        std:    LVDS_25
+
+    pmod_d[7]:
+        loc:    V18
+        std:    LVDS_25
+
+    ####################################################################################################################
+    # PMOD E
+
+    pmod_e[0]:
+        loc:    V12
+        std:    LVCMOS33
+
+    pmod_e[1]:
+        loc:    W16
+        std:    LVCMOS33
+
+    pmod_e[2]:
+        loc:    J15
+        std:    LVCMOS33
+
+    pmod_e[3]:
+        loc:    H15
+        std:    LVCMOS33
+
+    pmod_e[4]:
+        loc:    V13
+        std:    LVCMOS33
+
+    pmod_e[5]:
+        loc:    U17
+        std:    LVCMOS33
+
+    pmod_e[6]:
+        loc:    T17
+        std:    LVCMOS33
+
+    pmod_e[7]:
+        loc:    Y17
+        std:    LVCMOS33
