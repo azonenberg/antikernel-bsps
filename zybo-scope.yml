@@ -215,19 +215,19 @@ ios:
 
     pmod_c[4]:
         loc:    W14
-        std:    LVCMOS33
+        std:    TMDS_33
 
     pmod_c[5]:
         loc:    Y14
-        std:    LVCMOS33
+        std:    TMDS_33
 
     pmod_c[6]:
         loc:    T12
-        std:    LVCMOS33
+        std:    LVDS_25
 
     pmod_c[7]:
         loc:    U12
-        std:    LVCMOS33
+        std:    LVDS_25
 
     ####################################################################################################################
     # PMOD D
@@ -250,19 +250,19 @@ ios:
 
     pmod_d[4]:
         loc:    U14
-        std:    TMDS_33
+        std:    LVCMOS33
 
     pmod_d[5]:
         loc:    U15
-        std:    TMDS_33
+        std:    LVCMOS33
 
     pmod_d[6]:
         loc:    V17
-        std:    LVDS_25
+        std:    LVCMOS33
 
     pmod_d[7]:
         loc:    V18
-        std:    LVDS_25
+        std:    LVCMOS33
 
     ####################################################################################################################
     # PMOD E
