@@ -201,7 +201,7 @@ ios:
         loc:    V15
         std:    LVCMOS33
         slew:	fast
-        drive:	8
+        drive:	16
 
     pmod_c[1]:
         loc:    W15
