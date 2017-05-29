@@ -437,34 +437,42 @@ ios:
     # GPIO PMOD header
 
     pmod_dq[0]:
+        slew:   fast
         loc:    F14
         std:    LVCMOS33
 
     pmod_dq[1]:
+        slew:   fast
         loc:    E11
         std:    LVCMOS33
 
     pmod_dq[2]:
+        slew:   fast
         loc:    G12
         std:    LVCMOS33
 
     pmod_dq[3]:
+        slew:   fast
         loc:    G14
         std:    LVCMOS33
 
     pmod_dq[4]:
+        slew:   fast
         loc:    F13
         std:    LVCMOS33
 
     pmod_dq[5]:
+        slew:   fast
         loc:    F12
         std:    LVCMOS33
 
     pmod_dq[6]:
+        slew:   fast
         loc:    H12
         std:    LVCMOS33
 
     pmod_dq[7]:
+        slew:   fast
         loc:    H11
         std:    LVCMOS33
 
