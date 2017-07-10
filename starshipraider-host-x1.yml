@@ -54,6 +54,8 @@ ios:
     ram0_dq[0]:
         loc:    B5
         std:    LVCMOS18
+        slew:	fast
+        drive:	12
 
     ram0_dq[1]:
         loc:    B4
