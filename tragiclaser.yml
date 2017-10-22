@@ -1,0 +1,185 @@
+########################################################################################################################
+#                                                                                                                      #
+# ANTIKERNEL v0.1                                                                                                      #
+#                                                                                                                      #
+# Copyright (c) 2012-2017 Andrew D. Zonenberg                                                                          #
+# All rights reserved.                                                                                                 #
+#                                                                                                                      #
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the     #
+# following conditions are met:                                                                                        #
+#                                                                                                                      #
+#    * Redistributions of source code must retain the above copyright notice, this list of conditions, and the         #
+#      following disclaimer.                                                                                           #
+#                                                                                                                      #
+#    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the       #
+#      following disclaimer in the documentation and/or other materials provided with the distribution.                #
+#                                                                                                                      #
+#    * Neither the name of the author nor the names of any contributors may be used to endorse or promote products     #
+#      derived from this software without specific prior written permission.                                           #
+#                                                                                                                      #
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   #
+# TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL #
+# THE AUTHORS BE HELD LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES        #
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR       #
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT #
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE       #
+# POSSIBILITY OF SUCH DAMAGE.                                                                                          #
+#                                                                                                                      #
+########################################################################################################################
+
+########################################################################################################################
+# Board info
+
+device:
+    triplet: spartan6-xc6slx25
+    speed: 2
+    package: ftg256
+
+
+########################################################################################################################
+# Clock sources
+
+clocks:
+    clk:
+        mhz:    100.000
+        duty:   50
+
+########################################################################################################################
+# Top-level signals
+
+ios:
+
+    ####################################################################################################################
+    # Clocks
+    
+    clk_100mhz:
+        loc:    M9
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # GPIOs
+
+    gpio[0]:
+        loc:    K1
+        std:    LVCMOS33
+
+    gpio[1]:
+        loc:    K2
+        std:    LVCMOS33
+
+    gpio[2]:
+        loc:    L1
+        std:    LVCMOS33
+
+    gpio[3]:
+        loc:    M1
+        std:    LVCMOS33
+
+    gpio[4]:
+        loc:    M2
+        std:    LVCMOS33
+
+    gpio[5]:
+        loc:    N1
+        std:    LVCMOS33
+
+    gpio[6]:
+        loc:    P1
+        std:    LVCMOS33
+
+    gpio[7]:
+        loc:    P2
+        std:    LVCMOS33
+
+    gpio[8]:
+        loc:    R1
+        std:    LVCMOS33
+
+    gpio[9]:
+        loc:    R2
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # PHY TX
+
+    tx_n_b:
+        loc:    A4
+        std:    LVCMOS33
+        drive:  16
+        slew:   fast
+
+    tx_n_a[0]:
+        loc:    B5
+        std:    LVCMOS33
+        drive:  24
+        slew:   fast
+
+    tx_n_a[1]:
+        loc:    A5
+        std:    LVCMOS33
+        drive:  24
+        slew:   fast
+
+    tx_p_b:
+        loc:    A9
+        std:    LVCMOS33
+        drive:  16
+        slew:   fast
+
+    tx_p_a[0]:
+        loc:    B10
+        std:    LVCMOS33
+        drive:  24
+        slew:   fast
+
+    tx_p_a[1]:
+        loc:    A10
+        std:    LVCMOS33
+        drive:  24
+        slew:   fast
+
+    ####################################################################################################################
+    # PHY RX
+
+    rx_n_signal_hi:
+        loc:    C7
+        std:    LVCMOS33
+
+    rx_n_vref_hi:
+        loc:    A7
+        std:    LVCMOS33
+
+    rx_n_signal_lo:
+        loc:    D6
+        std:    LVCMOS33
+
+    rx_n_vref_lo:
+        loc:    C6
+        std:    LVCMOS33
+
+    rx_p_signal_lo:
+        loc:    B8
+        std:    LVCMOS33
+
+    rx_p_vref_lo:
+        loc:    A8
+        std:    LVCMOS33
+
+    rx_p_signal_hi:
+        loc:    D8
+        std:    LVCMOS33
+
+    rx_p_vref_hi:
+        loc:    C8
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # LEDs
+
+    led[0]:
+        loc:    C5
+        std:    LVCMOS33
+
+    led[1]:
+        loc:    A11
+        std:    LVCMOS33
