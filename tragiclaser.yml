@@ -105,13 +105,13 @@ ios:
     tx_n_b:
         loc:    A4
         std:    LVCMOS33
-        drive:  16
+        drive:  24
         slew:   fast
 
     tx_n_a[0]:
         loc:    B5
         std:    LVCMOS33
-        drive:  24
+        drive:  4
         slew:   fast
 
     tx_n_a[1]:
@@ -123,13 +123,13 @@ ios:
     tx_p_b:
         loc:    A9
         std:    LVCMOS33
-        drive:  16
+        drive:  24
         slew:   fast
 
     tx_p_a[0]:
         loc:    B10
         std:    LVCMOS33
-        drive:  24
+        drive:  4
         slew:   fast
 
     tx_p_a[1]:
