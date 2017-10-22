@@ -1,0 +1,603 @@
+########################################################################################################################
+#                                                                                                                      #
+# ANTIKERNEL v0.1                                                                                                      #
+#                                                                                                                      #
+# Copyright (c) 2012-2017 Andrew D. Zonenberg                                                                          #
+# All rights reserved.                                                                                                 #
+#                                                                                                                      #
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the     #
+# following conditions are met:                                                                                        #
+#                                                                                                                      #
+#    * Redistributions of source code must retain the above copyright notice, this list of conditions, and the         #
+#      following disclaimer.                                                                                           #
+#                                                                                                                      #
+#    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the       #
+#      following disclaimer in the documentation and/or other materials provided with the distribution.                #
+#                                                                                                                      #
+#    * Neither the name of the author nor the names of any contributors may be used to endorse or promote products     #
+#      derived from this software without specific prior written permission.                                           #
+#                                                                                                                      #
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED   #
+# TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL #
+# THE AUTHORS BE HELD LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES        #
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR       #
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT #
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE       #
+# POSSIBILITY OF SUCH DAMAGE.                                                                                          #
+#                                                                                                                      #
+########################################################################################################################
+
+########################################################################################################################
+# Board info
+
+device:
+    triplet: artix7-xc7a100t
+    speed: 1
+    package: ftg256
+
+#######################################################################################################################
+# Clock sources
+
+clocks:
+    clk:
+        mhz:    100.000
+        duty:   50
+
+########################################################################################################################
+# Top-level signals
+
+ios:
+
+    ####################################################################################################################
+    # RAM
+
+    ram0_dq[0]:
+        loc:    B5
+        std:    LVCMOS18
+        slew:	fast
+        drive:	12
+
+    ram0_dq[1]:
+        loc:    B4
+        std:    LVCMOS18
+
+    ram0_dq[2]:
+        loc:    B7
+        std:    LVCMOS18
+
+    ram0_dq[3]:
+        loc:    B6
+        std:    LVCMOS18
+
+    ram0_dq[4]:
+        loc:    C7
+        std:    LVCMOS18
+
+    ram0_dq[5]:
+        loc:    A5
+        std:    LVCMOS18
+
+    ram0_dq[6]:
+        loc:    A4
+        std:    LVCMOS18
+
+    ram0_dq[7]:
+        loc:    A3
+        std:    LVCMOS18
+
+    ram0_dqs:
+        loc:    A7
+        std:    LVCMOS18
+
+    ram0_clk_p:
+        loc:    D6
+        std:    LVCMOS18
+
+    ram0_clk_n:
+        loc:    D5
+        std:    LVCMOS18
+
+    ram0_cs_n:
+        loc:    C6
+        std:    LVCMOS18
+
+    ram0_rst_n:
+        loc:    E5
+        std:    LVCMOS18
+
+    ####################################################################################################################
+
+    ram1_dq[0]:
+        loc:    D1
+        std:    LVCMOS18
+
+    ram1_dq[1]:
+        loc:    E1
+        std:    LVCMOS18
+
+    ram1_dq[2]:
+        loc:    D4
+        std:    LVCMOS18
+
+    ram1_dq[3]:
+        loc:    C2
+        std:    LVCMOS18
+
+    ram1_dq[4]:
+        loc:    B1
+        std:    LVCMOS18
+
+    ram1_dq[5]:
+        loc:    C1
+        std:    LVCMOS18
+
+    ram1_dq[6]:
+        loc:    E2
+        std:    LVCMOS18
+
+    ram1_dq[7]:
+        loc:    F2
+        std:    LVCMOS18
+
+    ram1_dqs:
+        loc:    C3
+        std:    LVCMOS18
+
+    ram1_clk_p:
+        loc:    F4
+        std:    LVCMOS18
+
+    ram1_clk_n:
+        loc:    F3
+        std:    LVCMOS18
+
+    ram1_cs_n:
+        loc:    A2
+        std:    LVCMOS18
+
+    ram1_rst_n:
+        loc:    B2
+        std:    LVCMOS18
+
+    ####################################################################################################################
+
+    ram2_dq[0]:
+        loc:    H2
+        std:    LVCMOS18
+
+    ram2_dq[1]:
+        loc:    K1
+        std:    LVCMOS18
+
+    ram2_dq[2]:
+        loc:    H3
+        std:    LVCMOS18
+
+    ram2_dq[3]:
+        loc:    J4
+        std:    LVCMOS18
+
+    ram2_dq[4]:
+        loc:    H4
+        std:    LVCMOS18
+
+    ram2_dq[5]:
+        loc:    H1
+        std:    LVCMOS18
+
+    ram2_dq[6]:
+        loc:    J1
+        std:    LVCMOS18
+
+    ram2_dq[7]:
+        loc:    K2
+        std:    LVCMOS18
+
+    ram2_dqs:
+        loc:    J3
+        std:    LVCMOS18
+
+    ram2_clk_p:
+        loc:    L3
+        std:    LVCMOS18
+
+    ram2_clk_n:
+        loc:    L2
+        std:    LVCMOS18
+
+    ram2_cs_n:
+        loc:    G1
+        std:    LVCMOS18
+
+    ram2_rst_n:
+        loc:    G2
+        std:    LVCMOS18
+
+    ####################################################################################################################
+
+    ram3_dq[0]:
+        loc:    R1
+        std:    LVCMOS18
+
+    ram3_dq[1]:
+        loc:    T2
+        std:    LVCMOS18
+
+    ram3_dq[2]:
+        loc:    M1
+        std:    LVCMOS18
+
+    ram3_dq[3]:
+        loc:    N1
+        std:    LVCMOS18
+
+    ram3_dq[4]:
+        loc:    M2
+        std:    LVCMOS18
+
+    ram3_dq[5]:
+        loc:    P1
+        std:    LVCMOS18
+
+    ram3_dq[6]:
+        loc:    R2
+        std:    LVCMOS18
+
+    ram3_dq[7]:
+        loc:    R3
+        std:    LVCMOS18
+
+    ram3_dqs:
+        loc:    N2
+        std:    LVCMOS18
+
+    ram3_clk_p:
+        loc:    T4
+        std:    LVCMOS18
+
+    ram3_clk_n:
+        loc:    T3
+        std:    LVCMOS18
+
+    ram3_cs_n:
+        loc:    N3
+        std:    LVCMOS18
+
+    ram3_rst_n:
+        loc:    P3
+        std:    LVCMOS18
+
+    ####################################################################################################################
+    # I/O card
+
+    # NOTE: RXD[7,6,5,4,2] are pin-swapped on PCB and need to be inverted on the FPGA
+
+    iocard_oe[0]:
+        loc:    E16
+        std:    LVCMOS33
+
+    iocard_oe[1]:
+        loc:    D16
+        std:    LVCMOS33
+
+    iocard_oe[2]:
+        loc:    D14
+        std:    LVCMOS33
+
+    iocard_oe[3]:
+        loc:    C14
+        std:    LVCMOS33
+
+    iocard_oe[4]:
+        loc:    D13
+        std:    LVCMOS33
+
+    iocard_oe[5]:
+        loc:    D11
+        std:    LVCMOS33
+
+    iocard_oe[6]:
+        loc:    C9
+        std:    LVCMOS33
+
+    iocard_oe[7]:
+        loc:    C8
+        std:    LVCMOS33
+
+    iocard_rxd_n[0]:
+        loc:    B16
+        std:    LVDS_25
+
+    iocard_rxd_p[0]:
+        loc:    C16
+        std:    LVDS_25
+
+    iocard_rxd_n[1]:
+        loc:    A15
+        std:    LVDS_25
+
+    iocard_rxd_p[1]:
+        loc:    B15
+        std:    LVDS_25
+
+    iocard_rxd_n[2]:
+        loc:    A14
+        std:    LVDS_25
+
+    iocard_rxd_p[2]:
+        loc:    A13
+        std:    LVDS_25
+
+    iocard_rxd_n[3]:
+        loc:    A12
+        std:    LVDS_25
+
+    iocard_rxd_p[3]:
+        loc:    B12
+        std:    LVDS_25
+
+    iocard_rxd_n[4]:
+        loc:    A10
+        std:    LVDS_25
+
+    iocard_rxd_p[4]:
+        loc:    B9
+        std:    LVDS_25
+
+    iocard_rxd_n[5]:
+        loc:    A9
+        std:    LVDS_25
+
+    iocard_rxd_p[5]:
+        loc:    A8
+        std:    LVDS_25
+
+    iocard_rxd_n[6]:
+        loc:    C12
+        std:    LVDS_25
+
+    iocard_rxd_p[6]:
+        loc:    C11
+        std:    LVDS_25
+
+    iocard_rxd_n[7]:
+        loc:    B11
+        std:    LVDS_25
+
+    iocard_rxd_p[7]:
+        loc:    B10
+        std:    LVDS_25
+
+    iocard_txd[0]:
+        loc:    F15
+        std:    LVCMOS33
+
+    iocard_txd[1]:
+        loc:    E15
+        std:    LVCMOS33
+
+    iocard_txd[2]:
+        loc:    E12
+        std:    LVCMOS33
+
+    iocard_txd[3]:
+        loc:    E13
+        std:    LVCMOS33
+
+    iocard_txd[4]:
+        loc:    B13
+        std:    LVCMOS33
+
+    iocard_txd[5]:
+        loc:    C13
+        std:    LVCMOS33
+
+    iocard_txd[6]:
+        loc:    D10
+        std:    LVCMOS33
+
+    iocard_txd[7]:
+        loc:    D9
+        std:    LVCMOS33
+
+    iocard_i2c_sda:
+        loc:    G15
+        std:    LVCMOS33
+
+    iocard_i2c_scl:
+        loc:    D15
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Sampling oscilloscope PMOD header
+
+    scope_i2c_sda:
+        loc:    H13
+        std:    LVCMOS33
+
+    scope_i2c_scl:
+        loc:    H14
+        std:    LVCMOS33
+
+    uart_txd:
+        loc:    H16
+        std:    LVCMOS33
+
+    uart_rxd:
+        loc:    G16
+        std:    LVCMOS33
+
+    scope_le_p:
+        loc:    J15
+        std:    TMDS_33
+
+    scope_le_n:
+        loc:    J16
+        std:    TMDS_33
+
+    ####################################################################################################################
+    # GPIO PMOD header
+
+    pmod_dq[0]:
+        slew:   fast
+        loc:    F14
+        std:    LVCMOS33
+
+    pmod_dq[1]:
+        slew:   fast
+        loc:    E11
+        std:    LVCMOS33
+
+    pmod_dq[2]:
+        slew:   fast
+        loc:    G12
+        std:    LVCMOS33
+
+    pmod_dq[3]:
+        slew:   fast
+        loc:    G14
+        std:    LVCMOS33
+
+    pmod_dq[4]:
+        slew:   fast
+        loc:    F13
+        std:    LVCMOS33
+
+    pmod_dq[5]:
+        slew:   fast
+        loc:    F12
+        std:    LVCMOS33
+
+    pmod_dq[6]:
+        slew:   fast
+        loc:    H12
+        std:    LVCMOS33
+
+    pmod_dq[7]:
+        slew:   fast
+        loc:    H11
+        std:    LVCMOS33
+
+    ####################################################################################################################
+    # Boot flash
+
+    flash_dq[0]:
+        loc:    J13
+        std:    LVCMOS18
+
+    flash_dq[1]:
+        loc:    J14
+        std:    LVCMOS18
+
+    flash_dq[2]:
+        loc:    K15
+        std:    LVCMOS18
+
+    flash_dq[3]:
+        loc:    K16
+        std:    LVCMOS18
+
+    flash_cs_n:
+        loc:    L12
+        std:    LVCMOS18
+
+    ####################################################################################################################
+    # Ethernet
+
+    rgmii_rxd[0]:
+        loc:    R15
+        std:    LVCMOS18
+
+    rgmii_rxd[1]:
+        loc:    R16
+        std:    LVCMOS18
+
+    rgmii_rxd[2]:
+        loc:    P15
+        std:    LVCMOS18
+
+    rgmii_rxd[3]:
+        loc:    P16
+        std:    LVCMOS18
+
+    rgmii_rx_clk:
+        loc:    N14
+        std:    LVCMOS18
+
+    rgmii_rx_dv:
+        loc:    T15
+        std:    LVCMOS18
+
+    rgmii_txd[0]:
+        loc:    M16
+        std:    LVCMOS18
+
+    rgmii_txd[1]:
+        loc:    M15
+        std:    LVCMOS18
+
+    rgmii_txd[2]:
+        loc:    N16
+        std:    LVCMOS18
+
+    rgmii_txd[3]:
+        loc:    P14
+        std:    LVCMOS18
+
+    rgmii_tx_clk:
+        loc:    T14
+        std:    LVCMOS18
+
+    rgmii_tx_en:
+        loc:    T13
+        std:    LVCMOS18
+
+    eth_link_led:
+        loc:    P10
+        std:    LVCMOS18
+
+    eth_activity_led:
+        loc:    P11
+        std:    LVCMOS18
+
+    eth_mdc:
+        loc:    R12
+        std:    LVCMOS18
+
+    eth_mdio:
+        loc:    T12
+        std:    LVCMOS18
+
+    eth_rst_n:
+        loc:    R8
+        std:    LVCMOS18
+
+    eth_int_n:
+        loc:    T8
+        std:    LVCMOS18
+
+    ####################################################################################################################
+    # Main system clock
+
+    clk:
+        loc:    N11
+        std:    LVCMOS18
+
+    ####################################################################################################################
+    # Debug indicator LEDs
+
+    led[0]:
+        loc:    T7
+        std:    LVCMOS18
+
+    led[1]:
+        loc:    R6
+        std:    LVCMOS18
+
+    led[2]:
+        loc:    T5
+        std:    LVCMOS18
+
+    led[3]:
+        loc:    R5
+        std:    LVCMOS18
