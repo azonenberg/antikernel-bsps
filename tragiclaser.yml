@@ -108,11 +108,12 @@ ios:
         drive:  24
         slew:   fast
 
+    # pre-emphasis driver
     tx_n_a[0]:
         loc:    B5
         std:    LVCMOS33
-        drive:  4
-        slew:   fast
+        drive:  2
+        slew:   slow
 
     tx_n_a[1]:
         loc:    A5
@@ -126,11 +127,12 @@ ios:
         drive:  24
         slew:   fast
 
+    # pre-emphasis driver
     tx_p_a[0]:
         loc:    B10
         std:    LVCMOS33
-        drive:  4
-        slew:   fast
+        drive:  2
+        slew:   slow
 
     tx_p_a[1]:
         loc:    A10
@@ -143,35 +145,35 @@ ios:
 
     rx_n_signal_hi:
         loc:    C7
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_n_vref_hi:
         loc:    A7
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_n_signal_lo:
         loc:    D6
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_n_vref_lo:
         loc:    C6
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_p_signal_lo:
         loc:    B8
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_p_vref_lo:
         loc:    A8
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_p_signal_hi:
         loc:    D8
-        std:    LVCMOS33
+        std:    LVDS_33
 
     rx_p_vref_hi:
         loc:    C8
-        std:    LVCMOS33
+        std:    LVDS_33
 
     ####################################################################################################################
     # LEDs
