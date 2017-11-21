@@ -40,7 +40,7 @@ device:
 # Clock sources
 
 clocks:
-    clk:
+    clk_100mhz:
         mhz:    100.000
         duty:   50
 
